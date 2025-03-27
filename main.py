@@ -26,8 +26,31 @@ obs_csv_fp = arcpy.GetParameterAsText(3)
     # Convert Start and End times to seconds
 
 
+    # Select points in detection fc using Start and End time (select by start attribute)
 
-    # Select points in detection fc using Start and End time
+
+    # Using detection fc name, determine loop number
 
 
-    #
+    # Create folder with name of loop number
+
+
+    # Extract frames from destination video using Start and End times (add "detection{i}" to fn)
+
+
+    # Subset SRT fc list that have the same loop number, sans detection fc (overlap fc list)
+
+
+    # Loop through overlap fc list
+
+
+        # Select overlap fc points by location (within 15 m of detection points)
+
+
+        # Pull min and max start values from selected overlap fc points
+
+
+        # Pull FC_name from overlap fc points
+
+
+        # Using FC_name and min and max start values, extract frames from overlap video (add "overlap{i}" to fn)
