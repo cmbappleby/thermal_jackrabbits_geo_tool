@@ -3,13 +3,15 @@ import cv2
 import os
 
 
-def extract_frames(start_secs, end_secs, vids_folder, filename, out_folder, base_fn):
-    # Create fp for detection video
-    if filename.startswith('F'):
-        filename = filename[1:]
+def extract_frames(df_row, out_folder):
+    # Pull out data
+    vid_fp = df_row['Filepath']
+    start_secs = df_row["Start"][0]
+    end_secs = df_row["End"][0]
 
-    vid_name = filename + ".MOV"
-    vid_fp = os.path.join(vids_folder, vid_name)
+    # Create frame file base name
+    vid_fn = os.path.basename(vid_fp)[:-4]
+    base_fn = f"{vid_fn}_{df_row["Type"][0]}{df_row["DetectionNum"][0]}_"
 
     # Pull an additional 10 frames before and after start time
     start_frame = start_secs - 10
@@ -52,27 +54,3 @@ def extract_frames(start_secs, end_secs, vids_folder, filename, out_folder, base
 
     video.release()
     cv2.destroyAllWindows()
-
-
-def extract_frames_two_fcs(start_values, fc_names, fc_names_unique, loop_num, det_num, vids_folder, out_folder):
-    # Get the index of the second FC_Name
-    second_fc_name = fc_names_unique[1]
-    second_fc_index = fc_names.index(second_fc_name)
-
-    # Subset the start values list
-    first_start_values = start_values[:second_fc_index]
-    second_start_values = start_values[second_fc_index:]
-    start_values_lists = [first_start_values, second_start_values]
-
-    # Loop through lists
-    for i in range(len(start_values_lists)):
-        # Get min and max start values
-        min_value = min(start_values_lists[i])
-        max_value = max(start_values_lists[i])
-
-        # Get SRT fc name and remove the first character and create base file name
-        fc_name = fc_names_unique[i][1:]
-        ovlp_base_fn = f"{fc_name}_{loop_num}_overlap{det_num}_"
-
-        # Extract frames from overlap video
-        extract_frames(min_value, max_value, vids_folder, fc_name, out_folder, ovlp_base_fn)
