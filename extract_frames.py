@@ -4,7 +4,6 @@ from tkinter import filedialog
 import os
 import functions
 
-from main import loop_num
 
 # Hide the root window
 root = tk.Tk()
