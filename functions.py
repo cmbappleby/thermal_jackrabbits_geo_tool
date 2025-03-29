@@ -6,12 +6,19 @@ import os
 def extract_frames(df_row, out_folder):
     # Pull out data
     vid_fp = df_row['Filepath']
-    start_secs = df_row["Start"][0]
-    end_secs = df_row["End"][0]
+    vid_type = df_row['Type']
+    start_secs = df_row["Start"]
+    end_secs = df_row["End"]
+
+    # Create folder path for subfolder (separate detection and overlap)
+    out_subfolder = os.path.join(out_folder, vid_type)
+    if not os.path.exists(out_subfolder):
+        os.makedirs(out_subfolder)
+
 
     # Create frame file base name
     vid_fn = os.path.basename(vid_fp)[:-4]
-    base_fn = f"{vid_fn}_{df_row["Type"][0]}{df_row["DetectionNum"][0]}_"
+    base_fn = f"{vid_fn}_{vid_type}{df_row["DetectionNum"]}_"
 
     # Pull an additional 10 frames before and after start time
     start_frame = start_secs - 10
@@ -44,7 +51,7 @@ def extract_frames(df_row, out_folder):
             fn = f"{base_fn}{current_frame}.jpg"
 
             # And a file path
-            fp = os.path.join(out_folder, fn)
+            fp = os.path.join(out_subfolder, fn)
 
             # Write the frame as an  image
             cv2.imwrite(fp, frame)
