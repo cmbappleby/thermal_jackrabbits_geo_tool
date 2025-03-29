@@ -1,6 +1,6 @@
 """
-The purpose of this tool is to extract frames from thermal drone footage that can be used to confirm user detections
-of black-tailed jackrabbits.
+The purpose of this tool is to create a CSV with video names and start and end times of overlapping videos. The CSV can
+then be used to extract frames from the videos.
 
 This is the code executed by ArcGIS Pro when the geoprocessing tool is ran.
 """
@@ -9,22 +9,26 @@ This is the code executed by ArcGIS Pro when the geoprocessing tool is ran.
 import arcpy
 import os
 import pandas as pd
-import functions
 
 
 # === USER INPUTS === #
 srt_gdb = arcpy.GetParameterAsText(0)
 vids_folder = arcpy.GetParameterAsText(1)
-overlap_frames_out_folder = arcpy.GetParameterAsText(2)
-obs_csv_fp = arcpy.GetParameterAsText(3)
+obs_csv_fp = arcpy.GetParameterAsText(2)
+ovrlp_csv_fp = arcpy.GetParameterAsText(3)
 
 # === READ CSV AND SET WORKSPACE === #
 obs_csv = pd.read_csv(obs_csv_fp)
 arcpy.env.workspace = srt_gdb
 
-# === EXTRACT FRAMES FROM DETECTION AND OVERLAPPING VIDEOS === #
+# === CREATE DATA FRAME TO HOLD DATA NEEDED TO EXTRACT FRAMES === #
+ovrlp_cols = ["Filepath", "Type", "DetectionNum", "LoopNum", "Start", "End"]
+ovrlp_df = pd.DataFrame(columns=ovrlp_cols)
+
+# === GET DATA FOR DETECTION AND OVERLAPPING VIDEOS === #
 # Loop through the obs CSV (i)
 for i in range(len(obs_csv)):
+    # DETECTION VIDEO
     # Prevent outputs from being added to the map
     arcpy.env.addOutputsToMap = False
 
@@ -45,21 +49,12 @@ for i in range(len(obs_csv)):
     minute, sec = map(int, det_end_time.split(":"))
     det_end_sec = minute * 60 + sec
 
-    # Using detection fc name, determine loop number, and create folder with loop number
+    # Using detection fc name, determine loop number
     loop_num = det_srt_fc_name.split("_")[-1]
-    frames_folder = os.path.join(overlap_frames_out_folder, loop_num)
 
-    if not os.path.isfile(frames_folder):
-        os.mkdir(frames_folder)
-
-    # Extract frames from destination video using Start and End times (add "_detection{i}" to fn)
-    detection_folder = os.path.join(frames_folder, "detection")
-
-    if not os.path.isdir(detection_folder):
-        os.mkdir(detection_folder)
-
-    det_base_fn = f"{filename}_{loop_num}_detection{i}_"
-    functions.extract_frames(det_start_sec, det_end_sec, vids_folder, filename, detection_folder, det_base_fn)
+    # Add detection data to data frame
+    fp = os.path.join(vids_folder, f"{filename}.MOV")
+    ovrlp_df.loc[len(ovrlp_df)] = [fp, "detection", i, loop_num, det_start_sec, det_end_sec]
 
     # Select points in detection fc using Start and End time (select by start attribute)
     det_lyr = "det_lyr"
@@ -72,14 +67,9 @@ for i in range(len(obs_csv)):
         invert_where_clause=None
     )
 
+    # OVERLAPPING VIDEO(S)
     # Subset SRT fc list that have the same loop number, sans detection fc (overlap fc list)
     ovlp_srt_fc_list = arcpy.ListFeatureClasses(f"*{loop_num}*")
-
-    # Create folder for overlapping frames
-    overlap_folder = os.path.join(frames_folder, "overlap")
-
-    if not os.path.isdir(overlap_folder):
-        os.mkdir(overlap_folder)
 
     # Loop through overlap fc list
     for ovlp_srt_fc_name in ovlp_srt_fc_list:
@@ -118,21 +108,43 @@ for i in range(len(obs_csv)):
 
         # Check for more than one FC_Name
         fc_names_unique = set(fc_names)
+        fc_names_unique_list = list(fc_names_unique)
 
         # EXTRACT FRAMES IF MORE THAN ONE FEATURE CLASS
-        if len(fc_names_unique) > 1:
-            functions.extract_frames_two_fcs(start_values, fc_names, fc_names_unique, loop_num, i, vids_folder,
-                                             overlap_folder)
+        if len(fc_names_unique_list) > 1:
+            # Get the index of the second FC_Name
+            second_fc_name = fc_names_unique_list[1]
+            second_fc_index = fc_names.index(second_fc_name)
+
+            # Subset the start values list
+            first_start_values = start_values[:second_fc_index]
+            second_start_values = start_values[second_fc_index:]
+            start_values_lists = [first_start_values, second_start_values]
+
+            for j in range(len(start_values_lists)):
+                # Get min and max start values
+                min_start = min(start_values_lists[j])
+                max_start = max(start_values_lists[j])
+
+                # Get SRT fc name and remove the first character and create base file name
+                fc_name = fc_names_unique_list[j][1:]
+
+                # Add overlap data to data frame
+                fp = os.path.join(vids_folder, f"{fc_name}.MOV")
+                ovrlp_df.loc[len(ovrlp_df)] = [fp, "overlap", i, loop_num, min_start, max_start]
         else:
             # Get min and max start times
             min_start = min(start_values)
             max_start = max(start_values)
 
-            # Pull FC_name, create base name, and extract frames
-            ovlp_base_fn = f"{fc_names_unique[0]}_{loop_num}_overlap{i}_"
-            functions.extract_frames(min_start, max_start, vids_folder, fc_names_unique[0], overlap_folder,
-                                     ovlp_base_fn)
+            # Add overlap data to data frame
+            fc_name = fc_names_unique_list[0][1:]
+            fp = os.path.join(vids_folder, f"{fc_name}.MOV")
+            ovrlp_df.loc[len(ovrlp_df)] = [fp, "overlap", i, loop_num, min_start, max_start]
+
 
         arcpy.management.Delete(ovlp_lyr)
 
     arcpy.management.Delete(det_lyr)
+
+ovrlp_df.to_csv(ovrlp_csv_fp, index=False)
