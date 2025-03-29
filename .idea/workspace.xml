@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/FOD_BTJR_py.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FOD_BTJR_py.iml" afterDir="false" />
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Workflow outline">
+      <change afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742931809199</updated>
       <workItem from="1742931810233" duration="1272000" />
-      <workItem from="1743014749597" duration="3749000" />
+      <workItem from="1743014749597" duration="10903000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -86,7 +86,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742932008130</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Renamed utils.py to main.py">
+      <option name="closed" value="true" />
+      <created>1743110349589</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743110349589</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Workflow outline">
+      <option name="closed" value="true" />
+      <created>1743111134281</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743111134281</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +110,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Renamed utils.py to main.py" />
+    <MESSAGE value="Workflow outline" />
+    <option name="LAST_COMMIT_MESSAGE" value="Workflow outline" />
   </component>
 </project>
