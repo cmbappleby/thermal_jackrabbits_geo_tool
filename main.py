@@ -15,7 +15,7 @@ import pandas as pd
 srt_gdb = arcpy.GetParameterAsText(0)
 vids_folder = arcpy.GetParameterAsText(1)
 obs_csv_fp = arcpy.GetParameterAsText(2)
-ovrlp_csv_fp = arcpy.GetParameterAsText(3)
+ovrlp_csv_folder = arcpy.GetParameterAsText(3)
 
 # === READ CSV AND SET WORKSPACE === #
 obs_csv = pd.read_csv(obs_csv_fp)
@@ -37,7 +37,8 @@ for i in range(len(obs_csv)):
 
     # Use first four characters of Flight from obs CSV to find SRT fc create fp for detection fc
     flight = filename[:4]
-    det_srt_fc_name = arcpy.ListFeatureClasses(f"*{flight}_L*")
+    det_srt_fc_list = arcpy.ListFeatureClasses(f"*{flight}_L*")
+    det_srt_fc_name = det_srt_fc_list[0]
     det_srt_fc = os.path.join(srt_gdb, det_srt_fc_name)
 
     # Convert Start and End times to seconds
@@ -58,12 +59,12 @@ for i in range(len(obs_csv)):
 
     # Select points in detection fc using Start and End time (select by start attribute)
     det_lyr = "det_lyr"
-    arcpy.management.MakeFeature(det_srt_fc, det_lyr)
+    arcpy.management.MakeFeatureLayer(det_srt_fc, det_lyr)
 
     arcpy.management.SelectLayerByAttribute(
         in_layer_or_view=det_lyr,
         selection_type="NEW_SELECTION",
-        where_clause=f"start >= {det_start_sec} And start <= {det_end_sec} And FC_Name='F{filename}",
+        where_clause=f"start >= {det_start_sec} And start <= {det_end_sec} And FC_Name='F{filename}'",
         invert_where_clause=None
     )
 
@@ -78,7 +79,7 @@ for i in range(len(obs_csv)):
 
         # Select overlap fc points by location (within 15 m of detection points)
         ovlp_lyr = "ovlp_lyr"
-        arcpy.management.MakeFeature(ovlp_srt_fc, ovlp_lyr)
+        arcpy.management.MakeFeatureLayer(ovlp_srt_fc, ovlp_lyr)
 
         arcpy.management.SelectLayerByLocation(
             in_layer=ovlp_lyr,
@@ -147,4 +148,4 @@ for i in range(len(obs_csv)):
 
     arcpy.management.Delete(det_lyr)
 
-ovrlp_df.to_csv(ovrlp_csv_fp, index=False)
+ovrlp_df.to_csv(os.path.join(ovrlp_csv_folder, "det_ovrlp.csv"), index=False)
