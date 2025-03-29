@@ -24,7 +24,7 @@ det_ovrlp_csv = pd.read_csv(det_ovrlp_fp)
 # Loop through rows of the data frame
 for index, row in det_ovrlp_csv.iterrows():
     # Get loop number, create output folder path for frames
-    loop_num = row["LoopNum"]
+    loop_num = row['LoopNum']
     output_folder = os.path.join(frames_folder, loop_num)
 
     if not os.path.exists(output_folder):

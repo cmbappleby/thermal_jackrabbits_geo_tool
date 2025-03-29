@@ -1,4 +1,3 @@
-import arcpy
 import cv2
 import os
 
@@ -7,8 +6,8 @@ def extract_frames(df_row, out_folder):
     # Pull out data
     vid_fp = df_row['Filepath']
     vid_type = df_row['Type']
-    start_secs = df_row["Start"]
-    end_secs = df_row["End"]
+    start_secs = df_row['Start']
+    end_secs = df_row['End']
 
     # Create folder path for subfolder (separate detection and overlap)
     out_subfolder = os.path.join(out_folder, vid_type)
@@ -18,7 +17,7 @@ def extract_frames(df_row, out_folder):
 
     # Create frame file base name
     vid_fn = os.path.basename(vid_fp)[:-4]
-    base_fn = f"{vid_fn}_{vid_type}{df_row["DetectionNum"]}_"
+    base_fn = f"{vid_fn}_{vid_type}{df_row['DetectionNum']}_"
 
     # Pull an additional 10 frames before and after start time
     start_frame = start_secs - 10
