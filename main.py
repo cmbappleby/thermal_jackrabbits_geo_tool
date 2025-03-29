@@ -132,3 +132,7 @@ for i in range(len(obs_csv)):
             ovlp_base_fn = f"{fc_names_unique[0]}_{loop_num}_overlap{i}_"
             functions.extract_frames(min_start, max_start, vids_folder, fc_names_unique[0], overlap_folder,
                                      ovlp_base_fn)
+
+        arcpy.management.Delete(ovlp_lyr)
+
+    arcpy.management.Delete(det_lyr)

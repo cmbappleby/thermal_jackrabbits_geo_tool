@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Coding workflow">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Finished coding workflow" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742931809199</updated>
       <workItem from="1742931810233" duration="1272000" />
-      <workItem from="1743014749597" duration="15759000" />
+      <workItem from="1743014749597" duration="16101000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -118,7 +114,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743269355388</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added extract_frames_two_fcs()">
+      <option name="closed" value="true" />
+      <created>1743274257753</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743274257754</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Finished coding workflow">
+      <option name="closed" value="true" />
+      <created>1743274359183</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743274359183</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +142,8 @@
     <MESSAGE value="Workflow outline" />
     <MESSAGE value="Added extract_frames() function." />
     <MESSAGE value="Coding workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Coding workflow" />
+    <MESSAGE value="Added extract_frames_two_fcs()" />
+    <MESSAGE value="Finished coding workflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished coding workflow" />
   </component>
 </project>
