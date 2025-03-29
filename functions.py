@@ -42,7 +42,7 @@ def extract_frames(df_row, out_folder):
         ret, frame = video.read()
 
         if not ret:
-            arcpy.AddMessage(f"End of video: {vid_fp}")
+            print(f"End of video: {vid_fp}")
             break
 
         if current_frame % 2 == 0:
