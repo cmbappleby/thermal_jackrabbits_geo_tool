@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Added code to delete feature layers">
-      <change afterPath="$PROJECT_DIR$/extract_frames.py" afterDir="false" />
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Added function to script to consolidate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,18 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "cmbappleby"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;cmbappleby&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/cmbappleby/thermal_jackrabbits_geo_tool.git",
-    "accountId": "7ac464c8-3fc2-4ddf-8aa1-c454b7d63ed2"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/cmbappleby/thermal_jackrabbits_geo_tool.git&quot;,
+    &quot;accountId&quot;: &quot;7ac464c8-3fc2-4ddf-8aa1-c454b7d63ed2&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -45,20 +43,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -76,7 +74,9 @@
       <option name="presentableId" value="Default" />
       <updated>1742931809199</updated>
       <workItem from="1742931810233" duration="1272000" />
-      <workItem from="1743014749597" duration="19248000" />
+      <workItem from="1743014749597" duration="23104000" />
+      <workItem from="1743292109354" duration="1593000" />
+      <workItem from="1743296834551" duration="1300000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -142,7 +142,119 @@
       <option name="project" value="LOCAL" />
       <updated>1743274683299</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Changed scope of tool and rewrote code because I can't install the opencv package.">
+      <option name="closed" value="true" />
+      <created>1743288402717</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1743288402717</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Changed a parameter and created a file path.">
+      <option name="closed" value="true" />
+      <created>1743288679360</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743288679360</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Minor fixes">
+      <option name="closed" value="true" />
+      <created>1743290424796</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743290424796</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Deleted extract_frames_two_fc(), updated extract_frames() to work with standalone script.">
+      <option name="closed" value="true" />
+      <created>1743290467444</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743290467444</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Code for using det_ovrlp CSV to extract frames.">
+      <option name="closed" value="true" />
+      <created>1743291711964</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743291711964</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Minor tweaks.">
+      <option name="closed" value="true" />
+      <created>1743291722418</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743291722418</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Minor tweaks.">
+      <option name="closed" value="true" />
+      <created>1743291732932</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1743291732932</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changed to single quotes on column names for consistency">
+      <option name="closed" value="true" />
+      <created>1743292041405</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1743292041405</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Removed random code PyCharm added">
+      <option name="closed" value="true" />
+      <created>1743292162368</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1743292162368</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Renamed file">
+      <option name="closed" value="true" />
+      <created>1743292172415</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1743292172415</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Updated arcpy.Message() to print()">
+      <option name="closed" value="true" />
+      <created>1743292261765</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1743292261765</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Filter out detection flight from overlap flights list.">
+      <option name="closed" value="true" />
+      <created>1743297168263</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1743297168263</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Multiplied start and end seconds by fps (30)">
+      <option name="closed" value="true" />
+      <created>1743297212910</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1743297212910</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added function to script to consolidate">
+      <option name="closed" value="true" />
+      <created>1743303733735</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1743303733735</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +269,19 @@
     <MESSAGE value="Added extract_frames_two_fcs()" />
     <MESSAGE value="Finished coding workflow" />
     <MESSAGE value="Added code to delete feature layers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added code to delete feature layers" />
+    <MESSAGE value="Changed scope of tool and rewrote code because I can't install the opencv package." />
+    <MESSAGE value="Changed a parameter and created a file path." />
+    <MESSAGE value="Minor fixes" />
+    <MESSAGE value="Deleted extract_frames_two_fc(), updated extract_frames() to work with standalone script." />
+    <MESSAGE value="Code for using det_ovrlp CSV to extract frames." />
+    <MESSAGE value="Minor tweaks." />
+    <MESSAGE value="Changed to single quotes on column names for consistency" />
+    <MESSAGE value="Removed random code PyCharm added" />
+    <MESSAGE value="Renamed file" />
+    <MESSAGE value="Updated arcpy.Message() to print()" />
+    <MESSAGE value="Filter out detection flight from overlap flights list." />
+    <MESSAGE value="Multiplied start and end seconds by fps (30)" />
+    <MESSAGE value="Added function to script to consolidate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added function to script to consolidate" />
   </component>
 </project>
