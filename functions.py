@@ -20,8 +20,8 @@ def extract_frames(df_row, out_folder):
     base_fn = f"{vid_fn}_{vid_type}{df_row['DetectionNum']}_"
 
     # Pull an additional 10 frames before and after start time
-    start_frame = start_secs - 10
-    end_frame = end_secs + 10
+    start_frame = start_secs * 30 - 10
+    end_frame = end_secs * 30 + 10
 
     # If the observation is only one second of the video...
     if start_secs == end_secs:
