@@ -11,8 +11,12 @@ In 2024, we flew 3-6 flights on four different nights to obtain thermal drone fo
 
 Since we flew at night, not all jackrabbit detections, whether manual identified or detected by the model, could be confirmed with visible/RGB video. In an effort to confirm the detections, we plan to compare video frames from two different flights at the same location. If the potential jackrabbit detection appears in both videos, it is a false detection. If the potential jackrabbit only appears in the one video, it is a true and confirmed detection. The geotool.py Python is a script to create an ArcGIS Pro geoprocessing tool to automate the workflow of matching the video times of a detection in Video 1 to the video times in Video 2, with the Video 2 flight path being the same as Video 1 but at a different time or day. The output of the geoprocessing tool is a CSV with the video file paths and start and end times of the detections for the detection and overlapping videos, along with some data. The frames are extracted by executing extract_frames.py.
 
-Below are images to illustrate the jackrabbit detection confirmation method describe above. The images in the example are an actual comparison of two different videos.
+Below are images to illustrate the jackrabbit detection confirmation method describe above. The images in the examples are an actual comparison of two different videos.
 
 <img src="https://github.com/user-attachments/assets/d995b4c4-31a0-4ce4-864d-106cfe455350" width="400">          <img src="https://github.com/user-attachments/assets/b74d52c9-57c3-4a47-83d4-77e2f7848b90" width="400">
 
-*Example 1 - The potential jackrabbit detection is on the left from Video 1. The same "blob" appears in at the same location in Video 2; the detection was a false positive.*
+*Example 1 - The potential jackrabbit detection is on the left from Video 1. The same "blob" appears at the same location in Video 2; the detection was a false positive.*
+
+<img src="https://github.com/user-attachments/assets/6cb63d90-12cd-452d-99f7-53a411441790" width="400">          <img src="https://github.com/user-attachments/assets/7dd88af9-fd29-4b8c-a0ac-366869ae711e" width="400">
+
+*Example 2 - The potential jackrabbit detection is on the left from Video 1. The same "blob" does not appear at the same location in Video 2; the detection was a true positive.*
