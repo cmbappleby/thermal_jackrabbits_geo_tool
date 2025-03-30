@@ -70,7 +70,8 @@ for i in range(len(obs_csv)):
 
     # OVERLAPPING VIDEO(S)
     # Subset SRT fc list that have the same loop number, sans detection fc (overlap fc list)
-    ovlp_srt_fc_list = arcpy.ListFeatureClasses(f"*{loop_num}*")
+    ovlp_srt_fc_loop = arcpy.ListFeatureClasses(f"*{loop_num}*")
+    ovlp_srt_fc_list = [fc for fc in ovlp_srt_fc_loop if str(flight) not in fc]
 
     # Loop through overlap fc list
     for ovlp_srt_fc_name in ovlp_srt_fc_list:
