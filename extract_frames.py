@@ -19,9 +19,8 @@ def extract_frames(df_row, out_folder):
         os.makedirs(out_subfolder)
 
 
-    # Create frame file base name
+    # Get file base name sans extension
     vid_fn = os.path.basename(vid_fp)[:-4]
-    base_fn = f"{vid_fn}_{vid_type}{df_row['DetectionNum']}_"
 
     # Pull an additional 10 frames before and after start time
     start_frame = start_secs * 30 - 10
@@ -51,7 +50,7 @@ def extract_frames(df_row, out_folder):
 
         if current_frame % 2 == 0:
             # Create file name
-            fn = f"{base_fn}{current_frame}.jpg"
+            fn = f"{vid_fn}_{current_frame}.jpg"
 
             # And a file path
             fp = os.path.join(out_subfolder, fn)
@@ -83,11 +82,27 @@ det_ovrlp_csv = pd.read_csv(det_ovrlp_fp)
 
 # Loop through rows of the data frame
 for index, row in det_ovrlp_csv.iterrows():
-    # Get loop number, create output folder path for frames
-    loop_num = row['LoopNum']
-    output_folder = os.path.join(frames_folder, loop_num)
+    # If it's a detection, create a folder for the detection with the file base name
+    if row['Type'] == "detection":
+        # Get file base name sans extension
+        vid_name = os.path.basename(row['Filepath'])[:-4]
 
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
+        # Get a list of folders in the frames folder
+        folder_list = os.listdir(frames_folder)
+        # See how many folders are from the same file
+        count = sum(1 for folder in folder_list if folder.startswith(vid_name))
 
-    extract_frames(row, output_folder)
+        # If there are more than one, modify the folder name
+        if count > 0:
+            det_folder_name = f"{vid_name}_{count}"
+        else:
+            det_folder_name = vid_name
+
+        # Create the folder
+        det_folder_path = os.path.join(frames_folder, det_folder_name)
+        os.makedirs(det_folder_path)
+
+        extract_frames(row, det_folder_path)
+
+    if det_folder_path:
+        extract_frames(row, det_folder_path)
