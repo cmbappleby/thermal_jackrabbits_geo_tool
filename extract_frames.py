@@ -102,6 +102,9 @@ for index, row in det_ovrlp_csv.iterrows():
         det_folder_path = os.path.join(frames_folder, det_folder_name)
         os.makedirs(det_folder_path)
 
+        # Create a folder to hold confirmation frames (used later)
+        os.mkdir(os.path.join(det_folder_path, "confirmation"))
+
         extract_frames(row, det_folder_path)
 
     if det_folder_path:
