@@ -13,9 +13,13 @@ import pandas as pd
 
 
 # === USER INPUTS === #
+# GDB with the SRT point feature classes
 srt_gdb = arcpy.GetParameterAsText(0)
+# Folder containing the thermal videos
 vids_folder = arcpy.GetParameterAsText(1)
+# File path to the CSV containing the observations/detections with start and end times
 obs_csv_fp = arcpy.GetParameterAsText(2)
+# Output folder for CSVs
 ovrlp_csv_folder = arcpy.GetParameterAsText(3)
 
 # === READ CSV AND SET WORKSPACE === #
@@ -162,4 +166,5 @@ for i in range(len(obs_csv)):
 
     arcpy.management.Delete(det_lyr)
 
+# Save detection-overlap CSV
 ovrlp_df.to_csv(os.path.join(ovrlp_csv_folder, "det_ovrlp.csv"), index=False)

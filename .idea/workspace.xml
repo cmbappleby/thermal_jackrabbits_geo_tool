@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Added function to script to consolidate">
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Added code to create &quot;confirmation&quot; folder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geotool.py" beforeDir="false" afterPath="$PROJECT_DIR$/geotool.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +77,9 @@
       <workItem from="1742931810233" duration="1272000" />
       <workItem from="1743014749597" duration="23104000" />
       <workItem from="1743292109354" duration="1593000" />
-      <workItem from="1743296834551" duration="1300000" />
+      <workItem from="1743296834551" duration="1617000" />
+      <workItem from="1743380708358" duration="4161000" />
+      <workItem from="1743464916550" duration="370000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -254,11 +257,54 @@
       <option name="project" value="LOCAL" />
       <updated>1743303733735</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Removed functions.py">
+      <option name="closed" value="true" />
+      <created>1743303952232</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1743303952232</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Removed DetectionNum and LoopNum from output CSV and added start and end timestamp columns.">
+      <option name="closed" value="true" />
+      <created>1743382676317</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1743382676317</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Modified code to create a folder for each detection to store the frames.">
+      <option name="closed" value="true" />
+      <created>1743384675731</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1743384675731</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added code to create &quot;confirmation&quot; folder">
+      <option name="closed" value="true" />
+      <created>1743385574248</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1743385574248</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
@@ -282,6 +328,10 @@
     <MESSAGE value="Filter out detection flight from overlap flights list." />
     <MESSAGE value="Multiplied start and end seconds by fps (30)" />
     <MESSAGE value="Added function to script to consolidate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added function to script to consolidate" />
+    <MESSAGE value="Removed functions.py" />
+    <MESSAGE value="Removed DetectionNum and LoopNum from output CSV and added start and end timestamp columns." />
+    <MESSAGE value="Modified code to create a folder for each detection to store the frames." />
+    <MESSAGE value="Added code to create &quot;confirmation&quot; folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added code to create &quot;confirmation&quot; folder" />
   </component>
 </project>
