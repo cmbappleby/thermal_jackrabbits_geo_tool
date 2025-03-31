@@ -1,6 +1,7 @@
 """
 The purpose of this tool is to create a CSV with video names and start and end times of overlapping videos. The CSV can
-then be used to extract frames from the videos.
+then be used to extract frames from the videos. It is not the most efficient code (some of it is very repetitive and
+could be turned into functions), but it gets the job done.
 
 This is the code executed by ArcGIS Pro when the geoprocessing tool is ran.
 """
@@ -22,7 +23,7 @@ obs_csv = pd.read_csv(obs_csv_fp)
 arcpy.env.workspace = srt_gdb
 
 # === CREATE DATA FRAME TO HOLD DATA NEEDED TO EXTRACT FRAMES === #
-ovrlp_cols = ["Filepath", "Type", "DetectionNum", "LoopNum", "Start", "End"]
+ovrlp_cols = ["Filepath", "Type", "Start", "End", "StartTS", "EndTS"]
 ovrlp_df = pd.DataFrame(columns=ovrlp_cols)
 
 # === GET DATA FOR DETECTION AND OVERLAPPING VIDEOS === #
@@ -55,7 +56,7 @@ for i in range(len(obs_csv)):
 
     # Add detection data to data frame
     fp = os.path.join(vids_folder, f"{filename}.MOV")
-    ovrlp_df.loc[len(ovrlp_df)] = [fp, "detection", i, loop_num, det_start_sec, det_end_sec]
+    ovrlp_df.loc[len(ovrlp_df)] = [fp, "detection", det_start_sec, det_end_sec, det_start_time, det_end_time]
 
     # Select points in detection fc using Start and End time (select by start attribute)
     det_lyr = "det_lyr"
@@ -128,21 +129,33 @@ for i in range(len(obs_csv)):
                 min_start = min(start_values_lists[j])
                 max_start = max(start_values_lists[j])
 
+                # Convert to values to timestamps
+                minutes, secs = divmod(min_start, 60)
+                min_ts = f"{minutes:02}:{secs:02}"
+                minutes, secs = divmod(max_start, 60)
+                max_ts = f"{minutes:02}:{secs:02}"
+
                 # Get SRT fc name and remove the first character and create base file name
                 fc_name = fc_names_unique_list[j][1:]
 
                 # Add overlap data to data frame
                 fp = os.path.join(vids_folder, f"{fc_name}.MOV")
-                ovrlp_df.loc[len(ovrlp_df)] = [fp, "overlap", i, loop_num, min_start, max_start]
+                ovrlp_df.loc[len(ovrlp_df)] = [fp, "overlap", min_start, max_start, min_ts, max_ts]
         else:
             # Get min and max start times
             min_start = min(start_values)
             max_start = max(start_values)
 
+            # Convert to values to timestamps
+            minutes, secs = divmod(min_start, 60)
+            min_ts = f"{minutes:02}:{secs:02}"
+            minutes, secs = divmod(max_start, 60)
+            max_ts = f"{minutes:02}:{secs:02}"
+
             # Add overlap data to data frame
             fc_name = fc_names_unique_list[0][1:]
             fp = os.path.join(vids_folder, f"{fc_name}.MOV")
-            ovrlp_df.loc[len(ovrlp_df)] = [fp, "overlap", i, loop_num, min_start, max_start]
+            ovrlp_df.loc[len(ovrlp_df)] = [fp, "overlap", min_start, max_start, min_ts, max_ts]
 
 
         arcpy.management.Delete(ovlp_lyr)
