@@ -50,23 +50,16 @@ for i, row in obs_csv.iterrows():
     det_srt_fc_name = det_srt_fc_list[0]
     det_srt_fc = os.path.join(srt_gdb, det_srt_fc_name)
 
-    # Convert Start and End times to seconds
-    det_start_time = row['Start']
-    minute, sec = map(int, det_start_time.split(":"))
-    det_start_sec = minute * 60 + sec
-    obs_csv.at[i, "StartSec"] = det_start_sec
-
-    det_end_time = row['End']
-    minute, sec = map(int, det_end_time.split(":"))
-    det_end_sec = minute * 60 + sec
-    obs_csv.at[i, "EndSec"] = det_end_sec
+    # Get StartSec and EndSec times
+    det_start_sec = row['StartSec']
+    det_end_sec = row['EndSec']
 
     # Using detection fc name, determine loop number
     loop_num = det_srt_fc_name.split("_")[-1]
 
     # Add detection data to data frame
     fp = os.path.join(vids_folder, f"{filename}.MOV")
-    ovrlp_df.loc[len(ovrlp_df)] = [fp, "detection", det_start_sec, det_end_sec, det_start_time, det_end_time]
+    ovrlp_df.loc[len(ovrlp_df)] = [fp, "detection", det_start_sec, det_end_sec, row['Start'], row['End']]
 
     # Select points in detection fc using Start and End time (select by start attribute)
     det_lyr = "det_lyr"
