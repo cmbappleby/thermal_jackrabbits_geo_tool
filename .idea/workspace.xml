@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Script to prepare observation/detection CSV from obs, flight, and temp files.">
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Removed time conversion (done in obs_prep.py)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obs_prep.py" beforeDir="false" afterPath="$PROJECT_DIR$/obs_prep.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +79,7 @@
       <workItem from="1743296834551" duration="1617000" />
       <workItem from="1743380708358" duration="4161000" />
       <workItem from="1743464916550" duration="7174000" />
+      <workItem from="1743615206335" duration="942000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -321,7 +321,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743467486532</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Completed initial obs prep script">
+      <option name="closed" value="true" />
+      <created>1743615261801</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1743615261801</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Removed time conversion (done in obs_prep.py)">
+      <option name="closed" value="true" />
+      <created>1743615551866</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1743615551866</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,8 +355,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Coding workflow" />
-    <MESSAGE value="Added extract_frames_two_fcs()" />
     <MESSAGE value="Finished coding workflow" />
     <MESSAGE value="Added code to delete feature layers" />
     <MESSAGE value="Changed scope of tool and rewrote code because I can't install the opencv package." />
@@ -364,6 +378,8 @@
     <MESSAGE value="Cleaned up code." />
     <MESSAGE value="Updated to add seconds values to observation/detection CSV and save" />
     <MESSAGE value="Script to prepare observation/detection CSV from obs, flight, and temp files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Script to prepare observation/detection CSV from obs, flight, and temp files." />
+    <MESSAGE value="Completed initial obs prep script" />
+    <MESSAGE value="Removed time conversion (done in obs_prep.py)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed time conversion (done in obs_prep.py)" />
   </component>
 </project>

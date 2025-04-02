@@ -24,10 +24,6 @@ ovrlp_csv_folder = arcpy.GetParameterAsText(3)
 
 # === READ CSV AND SET WORKSPACE === #
 obs_csv = pd.read_csv(obs_csv_fp)
-# Add columns to hold the start and end times in seconds
-obs_csv['StartSec'] = None
-obs_csv['EndSec'] = None
-
 arcpy.env.workspace = srt_gdb
 
 # === CREATE DATA FRAME TO HOLD DATA NEEDED TO EXTRACT FRAMES === #
@@ -167,6 +163,3 @@ for i, row in obs_csv.iterrows():
 
 # Save detection-overlap CSV
 ovrlp_df.to_csv(os.path.join(ovrlp_csv_folder, "det_ovrlp.csv"), index=False)
-
-# Save updated obs_csv
-obs_csv.to_csv(os.path.join(ovrlp_csv_folder, "obs_secs.csv"), index=False)
