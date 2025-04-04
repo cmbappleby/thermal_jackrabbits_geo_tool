@@ -1,4 +1,5 @@
 import math
+import pandas as pd
 
 
 def time_to_sec(timestamp, ts_type):
