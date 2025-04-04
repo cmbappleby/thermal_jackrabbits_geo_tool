@@ -138,8 +138,7 @@ for i, row in obs_csv.iterrows():
                 fc_name = fc_names_unique_list[j][1:]
 
                 # Add overlap data to data frame
-                fp = os.path.join(vids_folder, f"{fc_name}.MOV")
-                ovrlp_df.loc[len(ovrlp_df)] = [fp, "overlap", min_start, max_start, min_ts, max_ts]
+                ovrlp_df.loc[len(ovrlp_df)] = [fc_name, "overlap", min_start, max_start, min_ts, max_ts]
         else:
             # Get min and max start times
             min_start = min(start_values)
@@ -153,8 +152,7 @@ for i, row in obs_csv.iterrows():
 
             # Add overlap data to data frame
             fc_name = fc_names_unique_list[0][1:]
-            fp = os.path.join(vids_folder, f"{fc_name}.MOV")
-            ovrlp_df.loc[len(ovrlp_df)] = [fp, "overlap", min_start, max_start, min_ts, max_ts]
+            ovrlp_df.loc[len(ovrlp_df)] = [fc_name, "overlap", min_start, max_start, min_ts, max_ts]
 
 
         arcpy.management.Delete(ovlp_lyr)
