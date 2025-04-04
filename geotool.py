@@ -43,7 +43,7 @@ obs_csv = utils.clean_obs(obs_df)
 arcpy.env.workspace = srt_gdb
 
 # === CREATE DATA FRAME TO HOLD DATA NEEDED TO EXTRACT FRAMES === #
-ovrlp_cols = ["Filepath", "Type", "Start", "End", "StartTS", "EndTS", "Certainty"]
+ovrlp_cols = ["Filename", "Type", "Start", "End", "StartTS", "EndTS", "Certainty"]
 ovrlp_df = pd.DataFrame(columns=ovrlp_cols)
 
 # === GET DATA FOR DETECTION AND OVERLAPPING VIDEOS === #
