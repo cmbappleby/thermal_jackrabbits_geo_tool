@@ -72,8 +72,7 @@ for i, row in obs_csv.iterrows():
     loop_num = det_srt_fc_name.split("_")[-1]
 
     # Add detection data to data frame
-    fp = os.path.join(vids_folder, f"{filename}.MOV")
-    ovrlp_df.loc[len(ovrlp_df)] = ["Flight_ID", fp, "detection", det_start_sec, det_end_sec, row['Start'], row['End'], row['Certainty']]
+    ovrlp_df.loc[len(ovrlp_df)] = [flight, filename, "detection", det_start_sec, det_end_sec, row['Start'], row['End'], row['Certainty']]
 
     # Select points in detection fc using Start and End time (select by start attribute)
     det_lyr = "det_lyr"
@@ -184,7 +183,7 @@ for i, row in obs_csv.iterrows():
 ovrlp_temp_df = ovrlp_df.merge(temp_df, how='left', on='Flight_ID')
 
 # Add additional column names for confimation
-ovrlp_temp_df[['VidTempMaxF', 'VidTempMinF', 'Detection', 'OverlapNums', 'Notes']] = pd.NA
+ovrlp_temp_df[['VidTempMaxF', 'VidTempMinF', 'Detection', 'Notes']] = pd.NA
 
 # Save detection-overlap CSV
 ovrlp_temp_df.to_csv(os.path.join(ovrlp_csv_folder, ovrlp_csv_fn), index=False)
