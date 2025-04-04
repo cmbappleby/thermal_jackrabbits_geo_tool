@@ -171,7 +171,8 @@ for i, row in obs_csv.iterrows():
 
             # Add overlap data to data frame
             fc_name = fc_names_unique_list[0][1:]
-            ovrlp_df.loc[len(ovrlp_df)] = [fc_name, "overlap", min_start, max_start, min_ts, max_ts, pd.NA]
+            flight_ovrlp = fc_name[:4]
+            ovrlp_df.loc[len(ovrlp_df)] = [flight_ovrlp, fc_name, "overlap", min_start, max_start, min_ts, max_ts, pd.NA]
 
 
         arcpy.management.Delete(ovlp_lyr)

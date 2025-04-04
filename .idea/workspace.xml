@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Convert Flight_ID to int">
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Added Flight_ID to overlap df">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geotool.py" beforeDir="false" afterPath="$PROJECT_DIR$/geotool.py" afterDir="false" />
     </list>
@@ -82,7 +82,7 @@
       <workItem from="1743464916550" duration="7174000" />
       <workItem from="1743615206335" duration="2045000" />
       <workItem from="1743783910976" duration="3672000" />
-      <workItem from="1743787805941" duration="2251000" />
+      <workItem from="1743787805941" duration="3135000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -446,7 +446,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated arcpy.Message() to print()" />
     <MESSAGE value="Filter out detection flight from overlap flights list." />
     <MESSAGE value="Multiplied start and end seconds by fps (30)" />
     <MESSAGE value="Added function to script to consolidate" />
@@ -471,6 +470,7 @@
     <MESSAGE value="Imported pandas" />
     <MESSAGE value="Convert filename" />
     <MESSAGE value="Convert Flight_ID to int" />
-    <option name="LAST_COMMIT_MESSAGE" value="Convert Flight_ID to int" />
+    <MESSAGE value="Added Flight_ID to overlap df" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Flight_ID to overlap df" />
   </component>
 </project>
