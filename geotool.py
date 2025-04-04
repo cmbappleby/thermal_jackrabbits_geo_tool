@@ -154,7 +154,7 @@ for i, row in obs_csv.iterrows():
 
                 # Get SRT fc name and remove the first character and create base file name
                 fc_name = fc_names_unique_list[j][1:]
-                flight_ovrlp = fc_name[:4].astype(int)
+                flight_ovrlp = int(fc_name[:4])
 
                 # Add overlap data to data frame
                 ovrlp_df.loc[len(ovrlp_df)] = [flight_ovrlp, fc_name, "overlap", min_start, max_start, min_ts, max_ts, pd.NA]
@@ -171,7 +171,7 @@ for i, row in obs_csv.iterrows():
 
             # Add overlap data to data frame
             fc_name = fc_names_unique_list[0][1:]
-            flight_ovrlp = fc_name[:4].astype(int)
+            flight_ovrlp = int(fc_name[:4])
             ovrlp_df.loc[len(ovrlp_df)] = [flight_ovrlp, fc_name, "overlap", min_start, max_start, min_ts, max_ts, pd.NA]
 
 
