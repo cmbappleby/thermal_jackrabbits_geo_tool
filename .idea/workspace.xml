@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Removed adding CSV columns">
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Moved functions to a separate file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geotool.py" beforeDir="false" afterPath="$PROJECT_DIR$/geotool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obs_prep.py" beforeDir="false" afterPath="$PROJECT_DIR$/obs_prep.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +82,7 @@
       <workItem from="1743380708358" duration="4161000" />
       <workItem from="1743464916550" duration="7174000" />
       <workItem from="1743615206335" duration="2045000" />
+      <workItem from="1743783910976" duration="2098000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -345,7 +348,31 @@
       <option name="project" value="LOCAL" />
       <updated>1743616387519</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Changed file path to file name.">
+      <option name="closed" value="true" />
+      <created>1743784227848</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1743784227848</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Adjusted for ClipChamp weird times.">
+      <option name="closed" value="true" />
+      <created>1743784264856</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1743784264856</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Moved functions to a separate file">
+      <option name="closed" value="true" />
+      <created>1743785653997</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1743785653997</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,9 +390,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added code to delete feature layers" />
-    <MESSAGE value="Changed scope of tool and rewrote code because I can't install the opencv package." />
-    <MESSAGE value="Changed a parameter and created a file path." />
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="Deleted extract_frames_two_fc(), updated extract_frames() to work with standalone script." />
     <MESSAGE value="Code for using det_ovrlp CSV to extract frames." />
@@ -388,6 +412,9 @@
     <MESSAGE value="Completed initial obs prep script" />
     <MESSAGE value="Removed time conversion (done in obs_prep.py)" />
     <MESSAGE value="Removed adding CSV columns" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed adding CSV columns" />
+    <MESSAGE value="Changed file path to file name." />
+    <MESSAGE value="Adjusted for ClipChamp weird times." />
+    <MESSAGE value="Moved functions to a separate file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved functions to a separate file" />
   </component>
 </project>

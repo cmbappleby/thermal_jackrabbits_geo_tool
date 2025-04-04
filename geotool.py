@@ -10,6 +10,7 @@ This is the code executed by ArcGIS Pro when the geoprocessing tool is ran.
 import arcpy
 import os
 import pandas as pd
+import utils
 
 
 # === USER INPUTS === #
@@ -18,16 +19,31 @@ srt_gdb = arcpy.GetParameterAsText(0)
 # Folder containing the thermal videos
 vids_folder = arcpy.GetParameterAsText(1)
 # File path to the CSV containing the observations/detections with start and end times
-obs_csv_fp = arcpy.GetParameterAsText(2)
+obs_xlsx_fp = arcpy.GetParameterAsText(2)
+# File path to the temperature data CSV
+temp_csv_fp = arcpy.GetParameterAsText(3)
 # Output folder for CSVs
-ovrlp_csv_folder = arcpy.GetParameterAsText(3)
+ovrlp_csv_folder = arcpy.GetParameterAsText(4)
+# Output file name
+ovrlp_csv_fn = arcpy.GetParameterAsText(5)
+if not ovrlp_csv_fn.endswith('.csv'):
+    ovrlp_csv_fn = f"{ovrlp_csv_fn}.csv"
 
-# === READ CSV AND SET WORKSPACE === #
-obs_csv = pd.read_csv(obs_csv_fp)
+# === READ CSVs, CLEAN, AND SET WORKSPACE === #
+# noinspection PyTypeChecker
+obs_df = pd.read_excel(obs_xlsx_fp,
+                       sheet_name=1,
+                       usecols=['Flight_ID', 'Filename', 'Video_Frame_Start', 'Video_Frame_End', 'Certainty'])
+
+temp_df = pd.read_csv(temp_csv_fp,
+                      usecols=['Flight_ID', 'tempF', 'tempC', 'maxT_C', 'minT_C'])
+
+obs_csv = utils.clean_obs(obs_df)
+
 arcpy.env.workspace = srt_gdb
 
 # === CREATE DATA FRAME TO HOLD DATA NEEDED TO EXTRACT FRAMES === #
-ovrlp_cols = ["Filepath", "Type", "Start", "End", "StartTS", "EndTS"]
+ovrlp_cols = ["Filepath", "Type", "Start", "End", "StartTS", "EndTS", "Certainty"]
 ovrlp_df = pd.DataFrame(columns=ovrlp_cols)
 
 # === GET DATA FOR DETECTION AND OVERLAPPING VIDEOS === #
@@ -55,7 +71,7 @@ for i, row in obs_csv.iterrows():
 
     # Add detection data to data frame
     fp = os.path.join(vids_folder, f"{filename}.MOV")
-    ovrlp_df.loc[len(ovrlp_df)] = [fp, "detection", det_start_sec, det_end_sec, row['Start'], row['End']]
+    ovrlp_df.loc[len(ovrlp_df)] = [fp, "detection", det_start_sec, det_end_sec, row['Start'], row['End'], row['Certainty']]
 
     # Select points in detection fc using Start and End time (select by start attribute)
     det_lyr = "det_lyr"
@@ -138,7 +154,7 @@ for i, row in obs_csv.iterrows():
                 fc_name = fc_names_unique_list[j][1:]
 
                 # Add overlap data to data frame
-                ovrlp_df.loc[len(ovrlp_df)] = [fc_name, "overlap", min_start, max_start, min_ts, max_ts]
+                ovrlp_df.loc[len(ovrlp_df)] = [fc_name, "overlap", min_start, max_start, min_ts, max_ts, pd.NA]
         else:
             # Get min and max start times
             min_start = min(start_values)
@@ -152,12 +168,18 @@ for i, row in obs_csv.iterrows():
 
             # Add overlap data to data frame
             fc_name = fc_names_unique_list[0][1:]
-            ovrlp_df.loc[len(ovrlp_df)] = [fc_name, "overlap", min_start, max_start, min_ts, max_ts]
+            ovrlp_df.loc[len(ovrlp_df)] = [fc_name, "overlap", min_start, max_start, min_ts, max_ts, pd.NA]
 
 
         arcpy.management.Delete(ovlp_lyr)
 
     arcpy.management.Delete(det_lyr)
 
+# Join temperature data
+ovrlp_temp_df = ovrlp_df.merge(temp_df, how='left', on='Flight_ID')
+
+# Add additional column names for confimation
+ovrlp_temp_df[['VidTempMaxF', 'VidTempMinF', 'Detection', 'OverlapNums', 'Notes']] = pd.NA
+
 # Save detection-overlap CSV
-ovrlp_df.to_csv(os.path.join(ovrlp_csv_folder, "det_ovrlp.csv"), index=False)
+ovrlp_temp_df.to_csv(os.path.join(ovrlp_csv_folder, ovrlp_csv_fn), index=False)
