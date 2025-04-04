@@ -38,12 +38,14 @@ obs_df = pd.read_excel(obs_xlsx_fp,
 temp_df = pd.read_csv(temp_csv_fp,
                       usecols=['Flight_ID', 'tempF', 'tempC', 'maxT_C', 'minT_C'])
 
+temp_df['Flight_ID'] = temp_df['Flight_ID'].apply(lambda x: int(x))
+
 obs_csv = utils.clean_obs(obs_df)
 
 arcpy.env.workspace = srt_gdb
 
 # === CREATE DATA FRAME TO HOLD DATA NEEDED TO EXTRACT FRAMES === #
-ovrlp_cols = ["Filename", "Type", "Start", "End", "StartTS", "EndTS", "Certainty"]
+ovrlp_cols = ["Flight_ID", "Filename", "Type", "Start", "End", "StartTS", "EndTS", "Certainty"]
 ovrlp_df = pd.DataFrame(columns=ovrlp_cols)
 
 # === GET DATA FOR DETECTION AND OVERLAPPING VIDEOS === #
@@ -71,7 +73,7 @@ for i, row in obs_csv.iterrows():
 
     # Add detection data to data frame
     fp = os.path.join(vids_folder, f"{filename}.MOV")
-    ovrlp_df.loc[len(ovrlp_df)] = [fp, "detection", det_start_sec, det_end_sec, row['Start'], row['End'], row['Certainty']]
+    ovrlp_df.loc[len(ovrlp_df)] = ["Flight_ID", fp, "detection", det_start_sec, det_end_sec, row['Start'], row['End'], row['Certainty']]
 
     # Select points in detection fc using Start and End time (select by start attribute)
     det_lyr = "det_lyr"
@@ -152,9 +154,10 @@ for i, row in obs_csv.iterrows():
 
                 # Get SRT fc name and remove the first character and create base file name
                 fc_name = fc_names_unique_list[j][1:]
+                flight_ovrlp = fc_name[:4]
 
                 # Add overlap data to data frame
-                ovrlp_df.loc[len(ovrlp_df)] = [fc_name, "overlap", min_start, max_start, min_ts, max_ts, pd.NA]
+                ovrlp_df.loc[len(ovrlp_df)] = [flight_ovrlp, fc_name, "overlap", min_start, max_start, min_ts, max_ts, pd.NA]
         else:
             # Get min and max start times
             min_start = min(start_values)

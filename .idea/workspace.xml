@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Convert filename">
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Convert Flight_ID to int">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geotool.py" beforeDir="false" afterPath="$PROJECT_DIR$/geotool.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +82,7 @@
       <workItem from="1743464916550" duration="7174000" />
       <workItem from="1743615206335" duration="2045000" />
       <workItem from="1743783910976" duration="3672000" />
-      <workItem from="1743787805941" duration="1071000" />
+      <workItem from="1743787805941" duration="2251000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -419,7 +420,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743788159855</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Convert Flight_ID to int">
+      <option name="closed" value="true" />
+      <created>1743790467787</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1743790467787</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +446,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Renamed file" />
     <MESSAGE value="Updated arcpy.Message() to print()" />
     <MESSAGE value="Filter out detection flight from overlap flights list." />
     <MESSAGE value="Multiplied start and end seconds by fps (30)" />
@@ -462,6 +470,7 @@
     <MESSAGE value="Changed col name from Filepath to Filename" />
     <MESSAGE value="Imported pandas" />
     <MESSAGE value="Convert filename" />
-    <option name="LAST_COMMIT_MESSAGE" value="Convert filename" />
+    <MESSAGE value="Convert Flight_ID to int" />
+    <option name="LAST_COMMIT_MESSAGE" value="Convert Flight_ID to int" />
   </component>
 </project>
