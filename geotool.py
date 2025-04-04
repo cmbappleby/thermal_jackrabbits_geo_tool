@@ -180,6 +180,7 @@ for i, row in obs_csv.iterrows():
     arcpy.management.Delete(det_lyr)
 
 # Join temperature data
+ovrlp_df['Flight_ID'] = ovrlp_df['Flight_ID'].apply(lambda x: int(x))
 ovrlp_temp_df = ovrlp_df.merge(temp_df, how='left', on='Flight_ID')
 
 # Add additional column names for confimation
