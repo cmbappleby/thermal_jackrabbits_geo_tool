@@ -47,17 +47,17 @@ ovrlp_cols = ["Filename", "Type", "Start", "End", "StartTS", "EndTS", "Certainty
 ovrlp_df = pd.DataFrame(columns=ovrlp_cols)
 
 # === GET DATA FOR DETECTION AND OVERLAPPING VIDEOS === #
-# Loop through the obs CSV (i)
+# Loop through the obs df (i)
 for i, row in obs_csv.iterrows():
     # DETECTION VIDEO
     # Prevent outputs from being added to the map
     arcpy.env.addOutputsToMap = False
 
-    # Get filename from CSV
+    # Get filename
     filename = row['Filename']
 
-    # Use first four characters of Flight from obs CSV to find SRT fc create fp for detection fc
-    flight = filename[:4]
+    # Use Flight_ID to find SRT fc, create fp for detection fc
+    flight = row['Flight_ID']
     det_srt_fc_list = arcpy.ListFeatureClasses(f"*{flight}_L*")
     det_srt_fc_name = det_srt_fc_list[0]
     det_srt_fc = os.path.join(srt_gdb, det_srt_fc_name)

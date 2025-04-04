@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Changed col name from Filepath to Filename">
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Imported pandas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +80,7 @@
       <workItem from="1743380708358" duration="4161000" />
       <workItem from="1743464916550" duration="7174000" />
       <workItem from="1743615206335" duration="2045000" />
-      <workItem from="1743783910976" duration="3313000" />
+      <workItem from="1743783910976" duration="3672000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -402,7 +402,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743786727272</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Imported pandas">
+      <option name="closed" value="true" />
+      <created>1743787521626</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1743787521627</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +428,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed to single quotes on column names for consistency" />
     <MESSAGE value="Removed random code PyCharm added" />
     <MESSAGE value="Renamed file" />
     <MESSAGE value="Updated arcpy.Message() to print()" />
@@ -445,6 +452,7 @@
     <MESSAGE value="Removed file from version control, file no longer needed" />
     <MESSAGE value="Updated to create fp from fn" />
     <MESSAGE value="Changed col name from Filepath to Filename" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed col name from Filepath to Filename" />
+    <MESSAGE value="Imported pandas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Imported pandas" />
   </component>
 </project>

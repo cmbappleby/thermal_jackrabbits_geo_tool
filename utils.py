@@ -1,5 +1,6 @@
 import math
 import pandas as pd
+import os
 
 
 def time_to_sec(timestamp, ts_type):
@@ -31,5 +32,11 @@ def clean_obs(obs_df):
     obs_3_4_df['EndSec'] = obs_3_4_df.apply(lambda row: time_to_sec(row['End'], 'End'), axis=1)
     obs_3_4_df['Start'] = obs_3_4_df['StartSec'].apply(real_time)
     obs_3_4_df['End'] = obs_3_4_df['EndSec'].apply(real_time)
+
+    # Convert filename
+    obs_3_4_df['Filename'] = obs_3_4_df['Filename'].apply(os.path.basename)
+    obs_3_4_df['Filename'] = obs_3_4_df['Filename'].str.split('_').str[:2].str.join('_')
+    obs_3_4_df['Filename'] = obs_3_4_df.apply(lambda row: f"{row['Flight_ID']}_{row['Filename']}",
+                                                              axis=1)
 
     return obs_3_4_df
