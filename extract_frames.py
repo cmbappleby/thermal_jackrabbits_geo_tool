@@ -4,23 +4,24 @@ from tkinter import filedialog
 import os
 import cv2
 
+from geotool import vids_folder
+
 
 # === FUNCTION TO EXTRACT FRAMES === #
-def extract_frames(df_row, out_folder):
+def extract_frames(df_row, vids_folder, out_folder):
     # Pull out data
-    vid_fp = df_row['Filepath']
+    vid_fn = df_row['Filename']
     vid_type = df_row['Type']
     start_secs = df_row['Start']
     end_secs = df_row['End']
+
+    # Create video fp
+    vid_fp = os.path.join(vids_folder, f"{vid_fn}.MOV")
 
     # Create folder path for subfolder (separate detection and overlap)
     out_subfolder = os.path.join(out_folder, vid_type)
     if not os.path.exists(out_subfolder):
         os.makedirs(out_subfolder)
-
-
-    # Get file base name sans extension
-    vid_fn = os.path.basename(vid_fp)[:-4]
 
     # Pull an additional 10 frames before and after start time
     start_frame = start_secs * 30 - 10
@@ -75,6 +76,8 @@ det_ovrlp_fp = filedialog.askopenfilename(
     filetypes=[("CSV files", "*.csv"), ("All files", "*.*")]
 )
 
+vids_folder = filedialog.askdirectory(title="Select folder containing videos")
+
 frames_folder = filedialog.askdirectory(title="Select a output folder for frames")
 
 # Read the selected CSV
@@ -85,7 +88,7 @@ for index, row in det_ovrlp_csv.iterrows():
     # If it's a detection, create a folder for the detection with the file base name
     if row['Type'] == "detection":
         # Get file base name sans extension
-        vid_name = os.path.basename(row['Filepath'])[:-4]
+        vid_name = row['Filepath']
 
         # Get a list of folders in the frames folder
         folder_list = os.listdir(frames_folder)
@@ -105,7 +108,7 @@ for index, row in det_ovrlp_csv.iterrows():
         # Create a folder to hold confirmation frames (used later)
         os.mkdir(os.path.join(det_folder_path, "confirmation"))
 
-        extract_frames(row, det_folder_path)
+        extract_frames(row, vids_folder, det_folder_path)
 
     if det_folder_path:
         extract_frames(row, det_folder_path)
