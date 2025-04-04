@@ -23,6 +23,7 @@ def real_time(real_sec):
 def clean_obs(obs_df):
     # Filter obs to only 3rd and 4th nights, rename and format columns
     obs_3_4_df = obs_df[obs_df['Flight_ID'] > 3000]
+    obs_3_4_df['Flight_ID'] = obs_3_4_df['Flight_ID'].astype(int)
     obs_3_4_df = obs_3_4_df.rename(columns={'Video_Frame_Start': 'Start', 'Video_Frame_End': 'End'})
     obs_3_4_df['Start'] = pd.to_datetime(obs_3_4_df['Start'], format='%M:%S:%f').dt.strftime('%M:%S')
     obs_3_4_df['End'] = pd.to_datetime(obs_3_4_df['End'], format='%M:%S:%f').dt.strftime('%M:%S')
