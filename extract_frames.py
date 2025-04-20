@@ -86,7 +86,7 @@ for index, row in det_ovrlp_csv.iterrows():
     # If it's a detection, create a folder for the detection with the file base name
     if row['Type'] == "detection":
         # Get file base name sans extension
-        vid_name = row['Filepath']
+        vid_name = row['Filename']
 
         # Get a list of folders in the frames folder
         folder_list = os.listdir(frames_folder)
@@ -109,4 +109,4 @@ for index, row in det_ovrlp_csv.iterrows():
         extract_frames(row, vids_folder, det_folder_path)
 
     if det_folder_path:
-        extract_frames(row, det_folder_path)
+        extract_frames(row, vids_folder, det_folder_path)
