@@ -10,8 +10,6 @@ This is the code executed by ArcGIS Pro when the geoprocessing tool is ran.
 import arcpy
 import os
 import pandas as pd
-from adodbapi.examples.xls_read import sheet
-
 import utils
 
 
