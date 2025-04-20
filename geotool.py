@@ -33,7 +33,7 @@ if not ovrlp_csv_fn.endswith('.csv'):
 # noinspection PyTypeChecker
 obs_df = pd.read_excel(obs_xlsx_fp,
                        sheet_name=1,
-                       usecols=['Flight_ID', 'Filename', 'Video_Frame_Start', 'Video_Frame_End', 'Certainty'])
+                       usecols=['Flight_ID', 'Filename', 'Start', 'End', 'Certainty'])
 
 temp_df = pd.read_csv(temp_csv_fp,
                       usecols=['Flight_ID', 'tempF', 'tempC', 'maxT_C', 'minT_C'])
