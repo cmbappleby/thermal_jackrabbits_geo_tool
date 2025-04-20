@@ -39,4 +39,6 @@ def clean_obs(obs_df, clip_champ):
         obs_3_4_df['StartSec'] = obs_3_4_df.apply(lambda row: time_to_sec(row['Start']), axis=1)
         obs_3_4_df['EndSec'] = obs_3_4_df.apply(lambda row: time_to_sec(row['End']), axis=1)
 
+    obs_3_4_df['Filename'] = obs_3_4_df.apply(lambda row: os.path.splitext(row['Filename'])[0], axis=1)
+
     return obs_3_4_df
