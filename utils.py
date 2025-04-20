@@ -24,9 +24,9 @@ def clean_obs(obs_df):
     # Filter obs to only 3rd and 4th nights, rename and format columns
     obs_3_4_df = obs_df[obs_df['Flight_ID'] > 3000]
     obs_3_4_df['Flight_ID'] = obs_3_4_df['Flight_ID'].astype(int)
-    obs_3_4_df = obs_3_4_df.rename(columns={'Video_Frame_Start': 'Start', 'Video_Frame_End': 'End'})
-    obs_3_4_df['Start'] = pd.to_datetime(obs_3_4_df['Start'], format='%M:%S:%f').dt.strftime('%M:%S')
-    obs_3_4_df['End'] = pd.to_datetime(obs_3_4_df['End'], format='%M:%S:%f').dt.strftime('%M:%S')
+    #obs_3_4_df = obs_3_4_df.rename(columns={'Video_Frame_Start': 'Start', 'Video_Frame_End': 'End'})
+    obs_3_4_df['Start'] = pd.to_datetime(obs_3_4_df['Start'], format='mixed').dt.strftime('%M:%S')
+    obs_3_4_df['End'] = pd.to_datetime(obs_3_4_df['End'], format='mixed').dt.strftime('%M:%S')
 
     # Convert timestamp to seconds and adjust for ClipChamp's weird timestamps
     obs_3_4_df['StartSec'] = obs_3_4_df.apply(lambda row: time_to_sec(row['Start'], 'Start'), axis=1)
