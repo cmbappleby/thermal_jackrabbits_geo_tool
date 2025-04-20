@@ -4,8 +4,6 @@ from tkinter import filedialog
 import os
 import cv2
 
-from geotool import vids_folder
-
 
 # === FUNCTION TO EXTRACT FRAMES === #
 def extract_frames(df_row, vids_folder, out_folder):
