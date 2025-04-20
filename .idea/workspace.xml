@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Changed obs xlsx to csv">
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Updated datetime format">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,15 +86,7 @@
       <workItem from="1744396734402" duration="1204000" />
       <workItem from="1744574706846" duration="602000" />
       <workItem from="1745160533557" duration="2683000" />
-      <workItem from="1745164588037" duration="366000" />
-    </task>
-    <task id="LOCAL-00004" summary="Added extract_frames() function.">
-      <option name="closed" value="true" />
-      <created>1743269339142</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1743269339142</updated>
+      <workItem from="1745164588037" duration="2274000" />
     </task>
     <task id="LOCAL-00005" summary="Coding workflow">
       <option name="closed" value="true" />
@@ -481,7 +472,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745162831855</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Updated datetime format">
+      <option name="closed" value="true" />
+      <created>1745164971926</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1745164971926</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,7 +498,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed DetectionNum and LoopNum from output CSV and added start and end timestamp columns." />
     <MESSAGE value="Modified code to create a folder for each detection to store the frames." />
     <MESSAGE value="Added code to create &quot;confirmation&quot; folder" />
     <MESSAGE value="Added comments" />
@@ -524,7 +522,8 @@
     <MESSAGE value="Removed unused code" />
     <MESSAGE value="Modified column names" />
     <MESSAGE value="Changed obs xlsx to csv" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed obs xlsx to csv" />
+    <MESSAGE value="Updated datetime format" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated datetime format" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FOD_BTJR_py$extract_frames.coverage" NAME="extract_frames Coverage Results" MODIFIED="1745160639353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

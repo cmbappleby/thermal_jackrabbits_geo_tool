@@ -10,6 +10,8 @@ This is the code executed by ArcGIS Pro when the geoprocessing tool is ran.
 import arcpy
 import os
 import pandas as pd
+from adodbapi.examples.xls_read import sheet
+
 import utils
 
 
@@ -19,7 +21,7 @@ srt_gdb = arcpy.GetParameterAsText(0)
 # Folder containing the thermal videos
 vids_folder = arcpy.GetParameterAsText(1)
 # File path to the CSV containing the observations/detections with start and end times
-obs_csv_fp = arcpy.GetParameterAsText(2)
+obs_xlsx_fp = arcpy.GetParameterAsText(2)
 # File path to the temperature data CSV
 temp_csv_fp = arcpy.GetParameterAsText(3)
 # Output folder for CSVs
@@ -31,7 +33,7 @@ if not ovrlp_csv_fn.endswith('.csv'):
 
 # === READ CSVs, CLEAN, AND SET WORKSPACE === #
 # noinspection PyTypeChecker
-obs_df = pd.read_csv(obs_csv_fp, usecols=['Flight_ID', 'Filename', 'Start', 'End', 'Certainty'])
+obs_df = pd.read_excel(obs_xlsx_fp, sheet_name=1, usecols=['Flight_ID', 'Filename', 'Start', 'End', 'Certainty'])
 
 temp_df = pd.read_csv(temp_csv_fp,
                       usecols=['Flight_ID', 'tempF', 'tempC', 'maxT_C', 'minT_C'])
