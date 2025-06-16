@@ -16,18 +16,16 @@ import utils
 # === USER INPUTS === #
 # GDB with the SRT point feature classes
 srt_gdb = arcpy.GetParameterAsText(0)
-# Folder containing the thermal videos
-vids_folder = arcpy.GetParameterAsText(1)
 # File path to the CSV containing the observations/detections with start and end times
-obs_xlsx_fp = arcpy.GetParameterAsText(2)
+obs_xlsx_fp = arcpy.GetParameterAsText(1)
 # Whether timestamps are from ClipChamp
-clip_champ = arcpy.GetParameter(3)
+clip_champ = arcpy.GetParameter(2)
 # File path to the temperature data CSV
-temp_csv_fp = arcpy.GetParameterAsText(4)
+temp_csv_fp = arcpy.GetParameterAsText(3)
 # Output folder for CSVs
-ovrlp_csv_folder = arcpy.GetParameterAsText(5)
+ovrlp_csv_folder = arcpy.GetParameterAsText(4)
 # Output file name
-ovrlp_csv_fn = arcpy.GetParameterAsText(6)
+ovrlp_csv_fn = arcpy.GetParameterAsText(5)
 if not ovrlp_csv_fn.endswith('.csv'):
     ovrlp_csv_fn = f"{ovrlp_csv_fn}.csv"
 
