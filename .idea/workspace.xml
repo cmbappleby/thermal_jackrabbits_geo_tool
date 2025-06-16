@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Reverted back to spreadsheet for observations" />
+    <list default="true" id="46a5b2ac-2d2c-4566-b1c6-dc72accb5b64" name="Changes" comment="Added ArcGIS Pro toolbox">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,62 +87,9 @@
       <workItem from="1744574706846" duration="602000" />
       <workItem from="1745160533557" duration="2683000" />
       <workItem from="1745164588037" duration="2430000" />
-    </task>
-    <task id="LOCAL-00006" summary="Added extract_frames_two_fcs()">
-      <option name="closed" value="true" />
-      <created>1743274257753</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1743274257754</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Finished coding workflow">
-      <option name="closed" value="true" />
-      <created>1743274359183</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1743274359183</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added code to delete feature layers">
-      <option name="closed" value="true" />
-      <created>1743274683299</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1743274683299</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Changed scope of tool and rewrote code because I can't install the opencv package.">
-      <option name="closed" value="true" />
-      <created>1743288402717</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1743288402717</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Changed a parameter and created a file path.">
-      <option name="closed" value="true" />
-      <created>1743288679360</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1743288679360</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Minor fixes">
-      <option name="closed" value="true" />
-      <created>1743290424796</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1743290424796</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Deleted extract_frames_two_fc(), updated extract_frames() to work with standalone script.">
-      <option name="closed" value="true" />
-      <created>1743290467444</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1743290467444</updated>
+      <workItem from="1745170489687" duration="6019000" />
+      <workItem from="1745459867603" duration="1832000" />
+      <workItem from="1750038878561" duration="2085000" />
     </task>
     <task id="LOCAL-00013" summary="Code for using det_ovrlp CSV to extract frames.">
       <option name="closed" value="true" />
@@ -478,7 +427,63 @@
       <option name="project" value="LOCAL" />
       <updated>1745170312779</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Deleted whatever PyCharm automatically added">
+      <option name="closed" value="true" />
+      <created>1745170538802</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1745170538802</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Added Boolean variable for whether ClimpChamp was used for the timestamps.">
+      <option name="closed" value="true" />
+      <created>1745171762468</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1745171762468</updated>
+    </task>
+    <task id="LOCAL-00057" summary="More ClipChamp tweaks">
+      <option name="closed" value="true" />
+      <created>1745172261338</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1745172261338</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Remove extension from Filename">
+      <option name="closed" value="true" />
+      <created>1745172818379</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1745172818379</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Add argument to extract_frames that somehow disappeared">
+      <option name="closed" value="true" />
+      <created>1745174491150</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1745174491150</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Add argument to extract_frames that somehow disappeared">
+      <option name="closed" value="true" />
+      <created>1750038968951</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1750038968952</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Added ArcGIS Pro toolbox">
+      <option name="closed" value="true" />
+      <created>1750039346224</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1750039346224</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,12 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added code to create &quot;confirmation&quot; folder" />
-    <MESSAGE value="Added comments" />
-    <MESSAGE value="Cleaned up code." />
-    <MESSAGE value="Updated to add seconds values to observation/detection CSV and save" />
-    <MESSAGE value="Script to prepare observation/detection CSV from obs, flight, and temp files." />
-    <MESSAGE value="Completed initial obs prep script" />
     <MESSAGE value="Removed time conversion (done in obs_prep.py)" />
     <MESSAGE value="Removed adding CSV columns" />
     <MESSAGE value="Changed file path to file name." />
@@ -521,9 +520,15 @@
     <MESSAGE value="Changed obs xlsx to csv" />
     <MESSAGE value="Updated datetime format" />
     <MESSAGE value="Reverted back to spreadsheet for observations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reverted back to spreadsheet for observations" />
+    <MESSAGE value="Deleted whatever PyCharm automatically added" />
+    <MESSAGE value="Added Boolean variable for whether ClimpChamp was used for the timestamps." />
+    <MESSAGE value="More ClipChamp tweaks" />
+    <MESSAGE value="Remove extension from Filename" />
+    <MESSAGE value="Add argument to extract_frames that somehow disappeared" />
+    <MESSAGE value="Added ArcGIS Pro toolbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ArcGIS Pro toolbox" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/FOD_BTJR_py$extract_frames.coverage" NAME="extract_frames Coverage Results" MODIFIED="1745160639353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FOD_BTJR_py$extract_frames.coverage" NAME="extract_frames Coverage Results" MODIFIED="1745174500205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
